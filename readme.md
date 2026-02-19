@@ -7,6 +7,7 @@ sudo su
 apt update && apt upgrade -y
 
 apt install docker-compose-v2
+apt install nano
 ```
 
 2. Получаем SECRET
@@ -28,6 +29,9 @@ EOF
 
 4.
 В /opt/mtproto создаем docker-compose.yml
+```bash
+nano docker-compose.yml
+```
 ```yaml
 services:
   mtg:
@@ -39,6 +43,8 @@ services:
       - ./config.toml:/config.toml:ro
     command: run /config.toml
 ```
+ctrl+s
+ctrl+x
 
 5.
 ```bash
