@@ -7,7 +7,16 @@ sudo su
 apt update && apt upgrade -y
 
 apt install docker-compose-v2
+```
 
+2. Получаем SECRET
+```bash
+docker run --rm nineseconds/mtg:master generate-secret 1c.ru
+```
+Должен выдать secret
+
+3.
+```bash
 mkdir -p /opt/mtproto
 cd /opt/mtproto
 
@@ -17,7 +26,7 @@ bind-to = "0.0.0.0:3128"
 EOF
 ```
 
-2.
+4.
 В /opt/mtproto создаем docker-compose.yml
 ```yaml
 services:
@@ -31,13 +40,13 @@ services:
     command: run /config.toml
 ```
 
-3.
+5.
 ```bash
 docker compose up -d
 docker compose logs -n 50 --no-color
 ```
 
-4.
+6.
 Проверяем:
 ```bash
 ss -tulnp | grep 8443 || true
@@ -51,7 +60,7 @@ tcp     LISTEN   0        4096                [::]:8443              [::]:*     
 
 ```
 
-5.
+7.
 В телеге:
 ```text
 Настройки -> Данные и память -> Настройки прокси -> добавить -> тип MTProto
