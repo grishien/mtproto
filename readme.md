@@ -14,7 +14,7 @@ bind-to = "0.0.0.0:3128"
 EOF
 ```
 
-3.
+2.
 В /opt/mtproto создаем docker-compose.yml
 ```yaml
 services:
@@ -28,13 +28,13 @@ services:
     command: run /config.toml
 ```
 
-4.
+3.
 ```bash
 docker compose up -d
 docker compose logs -n 50 --no-color
 ```
 
-5.
+4.
 Проверяем:
 ```bash
 ss -tulnp | grep 8443 || true
@@ -48,7 +48,7 @@ tcp     LISTEN   0        4096                [::]:8443              [::]:*     
 
 ```
 
-6.
+5.
 В телеге:
 Настройки -> Данные и память -> Настройки прокси -> добавить -> тип MTProto
 ставим туда IP, порт, secret
